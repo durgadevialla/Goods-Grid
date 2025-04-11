@@ -73,14 +73,26 @@ Respond accordingly.
   `;
 
   try {
+    if (!process.env.GEMINI_API_KEY) {
+      throw new Error('Gemini API key not configured');
+    }
+    
     const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-flash' });
     const result = await model.generateContent(prompt);
     const text = result.response.text();
 
+    console.log('Chat response generated successfully');
     res.json({ reply: text });
   } catch (err) {
-    console.error('Gemini API error:', err);
-    res.status(500).json({ reply: 'Gemini API failed. Check your API key, model name, and permissions.' });
+    console.error('Gemini API error:', {
+      error: err.message,
+      stack: err.stack,
+      apiKeyConfigured: !!process.env.GEMINI_API_KEY
+    });
+    res.status(500).json({ 
+      reply: 'Chat service unavailable',
+      error: err.message
+    });
   }
 });
 
