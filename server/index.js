@@ -15,10 +15,13 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
+const cors = require('cors');
+
 app.use(cors({
-  origin: ['https://your-vercel-app.vercel.app'],
+  origin: 'https://goods-grid.vercel.app', 
   credentials: true
 }));
+
 
 app.use(express.json());
 
