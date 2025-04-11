@@ -14,7 +14,7 @@ const ChatAssistant = ({ setSuggestedProducts }) => {
     setProducts([]);
 
     try {
-      const res = await fetch('/api/chat', {
+      const res = await fetch('https://goods-grid-1.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query }),
