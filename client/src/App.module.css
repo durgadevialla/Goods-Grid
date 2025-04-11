@@ -24,7 +24,7 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: url('../public/videos/animation tech GIF by Matthew Butler.gif') no-repeat center center / cover;
+    background: url('../public/images/animation\ tech\ GIF\ by\ Matthew\ Butler.gif') no-repeat center center / cover;
     opacity: 0.6;
     pointer-events: none;
   }
