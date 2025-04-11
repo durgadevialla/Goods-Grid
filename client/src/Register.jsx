@@ -37,7 +37,7 @@ const Register = ({ onRegister, onBack }) => {
     if (!validate()) return;
 
     try {
-      const response = await fetch('https://goods-grid-1.onrender.com/api/auth/login', {
+      const response = await fetch('https://goods-grid-1.onrender.com/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)  // Send formData, including adminKey if present
@@ -120,7 +120,6 @@ const Register = ({ onRegister, onBack }) => {
           </form>
   
           <button className={styles.backButton} onClick={onBack}>Back to Login</button>
-          <button onClick={onBack} className={styles.backButton}>Back</button>
         </div>
       </div>
     );
