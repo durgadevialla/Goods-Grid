@@ -15,7 +15,11 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://your-vercel-app.vercel.app'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Auth Routes
@@ -72,5 +76,5 @@ Respond accordingly.
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
