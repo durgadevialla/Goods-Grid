@@ -3,7 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-const authRoutes = require('./routes/authroutes');
+const authRoutes = require('./routes/authRoutes');
 
 dotenv.config();
 const app = express();
